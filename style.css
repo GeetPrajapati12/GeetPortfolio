@@ -1,0 +1,424 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background-color: #0a0a0a;
+    color: #00ff00;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-right .timestamp {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+
+/* Main Content Layout */
+.main-content {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 120px);
+}
+
+/* Left Panel - Profile Card */
+.left-panel {
+    width: 350px;
+    padding: 20px;
+    border-right: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px) rotateX(5deg);
+    box-shadow: 0 8px 30px rgba(0, 255, 0, 0.2);
+}
+
+.card-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.control.close {
+    background-color: #ff5f56;
+}
+
+.control.minimize {
+    background-color: #ffbd2e;
+}
+
+.control.maximize {
+    background-color: #27ca3f;
+}
+
+.card-content {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.profile-image {
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  /* border-radius removed to keep it rectangular */
+  border: 2px solid #00ff00;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-image img:hover {
+    transform: scale(1.05);
+}
+
+.card-info {
+    color: #917676;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.card-footer {
+    padding: 10px 15px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.card-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Right Panel - Terminal */
+.right-panel {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal {
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: flex-end;
+    background: #1a1a1a;
+    border-radius: 8px 8px 0 0;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-body {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.command-link {
+    color: #00ff00;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-decoration: underline;
+}
+
+.command-link:hover {
+    color: #00ff88;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.separator {
+    color: #666;
+    margin: 0 5px;
+}
+
+/* Terminal Output */
+.terminal-output {
+    flex: 1;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.output-line {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.output-line.command {
+    color: #00ff00;
+}
+
+.output-line.error {
+    color: #ff4444;
+}
+
+.output-line.success {
+    color: #44ff44;
+}
+
+/* Terminal Input */
+.terminal-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prompt {
+    color: #00ff00;
+    font-weight: 500;
+}
+
+.input-field {
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  flex: 1;
+  caret-color: #00ff00; /* real blinking caret color */
+}
+
+.cursor {
+    color: #00ff00;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Footer */
+.footer {
+    padding: 15px 20px;
+    border-top: 1px solid #333;
+    background: #0a0a0a;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .left-panel {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #333;
+        padding: 15px;
+    }
+    
+    .profile-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .right-panel {
+        padding: 15px;
+    }
+    
+    .name {
+        font-size: 2rem;
+    }
+    
+    .nav-menu {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px;
+    }
+    
+    .name {
+        font-size: 1.8rem;
+    }
+    
+    .title {
+        font-size: 1rem;
+    }
+    
+    .profile-image img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .terminal-body {
+        padding: 15px;
+    }
+}
+
+/* Animation for terminal text */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid #00ff00;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff00; }
+}
+
+.system-status {
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+/* System Themes */
+body.online {
+  --main-color: #00ff00;
+}
+
+body.offline {
+  --main-color: #ff4444;
+}
+
+/* Apply color switching to various elements */
+body.online .prompt,
+body.online .command-link,
+body.online .output-line,
+body.online .name,
+body.online .title,
+body.online .input-field,
+body.online .system-status {
+  color: var(--main-color);
+}
+
+body.offline .prompt,
+body.offline .command-link,
+body.offline .output-line,
+body.offline .name,
+body.offline .title,
+body.offline .input-field,
+body.offline .system-status {
+  color: var(--main-color);
+}
+
+body.offline .profile-image img {
+  border-color: #ff4444;
+}
+
+body.online .profile-image img {
+  border-color: #00ff00;
+}
+
+#systemOnline, #systemOffline {
+    display: none;
+}
+body.online #systemOnline {
+    display: inline;
+    color: #00ff00;
+}
+body.offline #systemOffline {
+    display: inline;
+    color: #ff4444;
+}

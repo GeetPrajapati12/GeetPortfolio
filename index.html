@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geet Prajapati - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+        <div class="header-left">
+            <h1 class="name">Geet Prajapati</h1>
+            <p class="title">Computer Engineer</p>
+        </div>
+        <div class="header-right">
+            <span class="timestamp" id="timestamp"></span>
+            <span class="system-status" id="systemStatus">System: Offline</span>
+        </div>
+        </header>
+
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Side - Profile Card -->
+            <div class="left-panel">
+                <div class="profile-card">
+                    <div class="card-header">
+                        <div class="card-controls">
+                            <span class="control close"></span>
+                            <span class="control minimize"></span>
+                            <span class="control maximize"></span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="profile-image">
+                            <img src="Img/IMG_20241122_17381ed.jpg.png" alt="Profile Photo" id="profileImg">
+                        </div>
+                        <div class="card-info">
+                            <h4>Geet Dilipbhai Prajapati</h4>
+                            <h5>Ahmedabad, Gujarat, India</h5>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Terminal -->
+            <div class="right-panel">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control close"></span>
+                            <span class="control minimize"></span>
+                            <span class="control maximize"></span>
+                        </div>
+                    </div>
+                    <div class="terminal-body">
+                        <!-- Navigation Menu -->
+                        <div class="nav-menu">
+                            <span class="command-link" data-command="Help">Help</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="About">About</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Projects">Projects</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Skills">Skills</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Experience">Experience</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Contact">Contact</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Education">Education</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Certifications">Certifications</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Leadership">Leadership</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Sudo">Sudo</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Clear">Clear</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="System Online">System Online</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="System Offline">System Offline</span>
+                            <span class="separator">|</span>
+                            <span class="command-link" data-command="Exit">Exit</span>
+                        </div>
+
+                        <!-- Terminal Output -->
+                        <div class="terminal-output" id="terminalOutput">
+                            <div class="output-line">Welcome to my portfolio terminal!</div>
+                            <div class="output-line">Type 'help' to see available commands.</div>
+                        </div>
+
+                        <!-- Terminal Input -->
+                        <div class="terminal-input">
+                            <span class="prompt">Geet@portfolio:~$</span>
+                            <input type="text" id="commandInput" class="input-field" autocomplete="off" spellcheck="false">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <!-- if System is  Online show msg "System is Online and ready to use enjoy" but if System is Offline show msg "System is Offline, please type 'system online' to go online" -->       
+                <!-- In your HTML -->
+                <span id="systemOffline">System is Offline, please type 'system online' to go online</span>
+                <span id="systemOnline">System is Online and ready to use, enjoy!</span>
+                <div class="footer-text">
+                    <p>&copy; 2024 Geet Prajapati. All rights reserved.</p>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
