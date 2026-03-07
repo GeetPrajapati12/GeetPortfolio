@@ -241,36 +241,25 @@ Hello! I'm Geet Prajapati — a cybersecurity enthusiast, game tester, QA tester
     }
 
     showProjects() {
-        const projectsText = `
+    const projectsText = `
 <span style="color: #00ff88;">My Projects</span>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <br>
-<span style="color: #00ff88;">1. E-Commerce Platform</span>
-   • Full-stack web application with React and Node.js
-   • Features: User authentication, payment integration, admin panel
-   • Technologies: React, Node.js, MongoDB, Stripe API
-   • GitHub: github.com/yourusername/ecommerce-platform
+<span style="color: #00ff88;">1. Automatic Street Light based on IoT</span>
+   • Designed an automated streetlight system as part of a Diploma in Computer Engineering.
+   • Objective: Enable smart lighting control using real-time environmental data.
+   • Technologies: IoT sensors, microcontrollers, embedded systems
+   • Outcome: Lights automatically turned on/off depending on environmental conditions.
 <br>
-<span style="color: #00ff88;">2. Task Management App</span>
-   • Real-time collaborative task management tool
-   • Features: Real-time updates, team collaboration, file sharing
-   • Technologies: Vue.js, Express.js, Socket.io, PostgreSQL
-   • GitHub: github.com/yourusername/task-manager
-<br>
-<span style="color: #00ff88;">3. Weather Dashboard</span>
-   • Interactive weather application with data visualization
-   • Features: Location-based weather, forecasts, charts
-   • Technologies: JavaScript, Chart.js, Weather API
-   • GitHub: github.com/yourusername/weather-dashboard
-<br>
-<span style="color: #00ff88;">4. Portfolio Website</span>
-   • Terminal-style portfolio website (this one!)
-   • Features: Interactive terminal, responsive design
-   • Technologies: HTML, CSS, JavaScript
-   • GitHub: github.com/yourusername/terminal-portfolio
+<span style="color: #00ff88;">2. Enhancing Real-Time Noise Pollution Monitoring in Urban Areas</span>
+   • Developed a real-time web-based system to monitor and visualize urban noise pollution levels.
+   • Features: Google Sign-In, two-factor authentication (2FA), real-time data updates, map-based visualization.
+   • Technologies: React.js, Node.js, MongoDB, sensor integration
+   • Outcome: Improved urban environmental awareness with secure and scalable technology.
         `;
-        this.addOutput(projectsText);
-    }
+    this.addOutput(projectsText);
+}
+
 
     showSkills() {
         this.addOutput('💻 <span style="color: #00ff88;">Technical Skills:</span>');
@@ -283,62 +272,62 @@ Hello! I'm Geet Prajapati — a cybersecurity enthusiast, game tester, QA tester
         this.addOutput('');
         this.addOutput('<span style="color: #00ff88;">Frontend:</span>');
         this.addOutput('- React.js/Next.js');
-        this.addOutput('- Redux/Zustand');
-        this.addOutput('- Material UI');
         this.addOutput('- Tailwind CSS');
         this.addOutput('');
         this.addOutput('<span style="color: #00ff88;">Backend:</span>');
         this.addOutput('- Node.js/Express.js');
-        this.addOutput('- Django/FastAPI');
-        this.addOutput('- ASP.NET Core');
-        this.addOutput('- REST APIs');
         this.addOutput('');
         this.addOutput('<span style="color: #00ff88;">Databases:</span>');
         this.addOutput('- MongoDB');
-        this.addOutput('- PostgreSQL');
         this.addOutput('- MySQL');
-        this.addOutput('- Redis');
         this.addOutput('');
         this.addOutput('<span style="color: #00ff88;">Cloud & DevOps:</span>');
         this.addOutput('- AWS/Azure/GCP');
-        this.addOutput('- Docker/Kubernetes');
-        this.addOutput('- CI/CD Pipelines');
+        this.addOutput('- Docker')
         this.addOutput('- Linux/Unix');
         this.addOutput('');
         this.addOutput('<span style="color: #00ff88;">Tools:</span>');
         this.addOutput('- Git/GitHub');
         this.addOutput('- VS Code');
-        this.addOutput('- Postman');
+        this.addOutput('- Jira');
         this.addOutput('- Figma');
     }
 
     showExperience() {
         const experienceText = `
-<span style="color: #00ff88;">Work Experience</span>
+<span style="color: #00ff88;">Work Experience & Internships </span>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 <br>
 
-<span style="color: #00ff88;">Game Tester</span> | RedPlum Games  
-📅 2023 – Present  
-• Conducted comprehensive game testing to identify bugs, glitches, and performance issues  
-• Collaborated with developers to refine game mechanics and improve UI/UX  
-• Performed functional, regression, and stress testing for performance optimization  
-• Ensured seamless gameplay experience through continuous QA feedback  
+<span style="color: #00ff88;">Manual Tester at Macrobian Games (2025 – Present): </span>
+• Performed functional, regression, and hardware-level testing on CRM machines. Conducted website testing,
+UI/UX validation, and basic security testing across platforms. Identified system bugs, validated new features,
+and ensured stable performance through stress testing. Also contributed to game testing to verify gameplay
+flow and user experience. Collaborated with developers to improve workflow, UI/UX behavior, and machine
+reliability across multiple software versions.  
 
 <br>
 
-<span style="color: #00ff88;">Game Tester & Developer Intern</span> | RedPlum Games  
-📅 2025 – 2025  
-• Contributed to development and QA for various gaming projects  
-• Executed rigorous quality assurance tests and debugging routines  
-• Enhanced UI/UX collaboratively with the game dev team  
-• Created a playable game prototype –  
-  <a href="https://drive.google.com/drive/folders/1SIqgbHdFObjvoTtb0ZT3udVtsIGN_pVV" target="_blank">Check it out</a>  
+<br>
+
+<span style="color: #00ff88;">Game Tester at RedPlum Games (2023 – Present): </span>
+• Conducted comprehensive game testing to identify bugs, glitches, and performance issues, ensuring a
+seamless gaming experience. Collaborated with developers to refine game mechanics, improve UI/UX, and
+enhance overall gameplay quality. Performed functional, regression, and stress testing to optimize game
+stability and performance.  
 
 <br>
 
-<span style="color: #00ff88;">Cybersecurity Lab Intern</span> | Cyber Security Lab Building  
-📅 2018 – 2019  
+<span style="color: #00ff88;">Game Tester & Developer Intern at RedPlum Games (Internship) (2025 – 2025): </span>
+• As a Game Tester and Developer intern at RedPlum Games, I actively contributed to the testing and
+development of various gaming projects. I conducted rigorous quality assurance tests, identified and reported
+bugs, and assisted in debugging game mechanics to ensure seamless gameplay experiences. Additionally, I
+collaborated with the development team to enhance the user interface and improve the overall gaming
+experience. Check out my first game using Py Game: <a href="https://drive.google.com/drive/folders/1SIqgbHdFObjvoTtb0ZT3udVtsIGN_pVV" target="_blank">Check it out</a>  
+
+<br>
+
+<span style="color: #00ff88;">Cyber Security Lab Building (2018 – 2019) </span>
 • Set up and configured lab environments using security tools and virtual machines  
 • Simulated real-world cyber threats to practice penetration testing and response  
 • Performed vulnerability assessments and network defense drills  
