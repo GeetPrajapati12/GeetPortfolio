@@ -346,7 +346,7 @@ experience. Check out my first game using Py Game: <a href="https://drive.google
 <span style="color: #00ff88;">📱 Phone:</span>         +917990143224
 <span style="color: #00ff88;">🌐 Website:</span>      https://yourportfolio.com
 <span style="color: #00ff88;">💼 LinkedIn:</span>     https://www.linkedin.com/in/geetprajapati12
-<span style="color: #00ff88;">🐙 GitHub:</span>       https://github.com/GeetBoss
+<span style="color: #00ff88;">🐙 GitHub:</span>       https://github.com/GeetPrajapati
 <span style="color: #00ff88;">📍 Location:</span>      Ahmedabad, Gujarat, India
 
 <span style="color: #00ff88;">Availability:</span>
@@ -368,7 +368,7 @@ opportunities, or just having a chat about technology.
 <span style="color: #00ff88;">B.Tech in Computer Engineering (Cyber Security)</span>  
 🎓 Ganpat University, ICT | 2022 – 2025  
 • CGPA: 6.43  
-• Focus Areas: Cybersecurity, Ethical Hacking, Network Security, Game Development  
+• Focus Areas: Cybersecurity, Ethical Hacking, Network Security, Game Development, IoT Systems, Quality Assurance  
 
 <span style="color: #00ff88;">Diploma in Computer Engineering</span>  
 🎓 Ganpat University, IoT | 2019 – 2022  
@@ -376,10 +376,7 @@ opportunities, or just having a chat about technology.
 • Focus Areas: Computer Fundamentals, Programming, IoT Systems, Project Work
 
 <span style="color: #00ff88;">Online Courses & Certifications:</span>
-• Full Stack Web Development Bootcamp (2019)
-• AWS Certified Developer Associate (2021)
-• Google Cloud Professional Developer (2022)
-• MongoDB Certified Developer (2020)
+• you can see my certifications in drive folder: <a href="https://drive.google.com/drive/folders/1JO63AnLyrIuzTVrwTjdNV_WxbFDBPqAY?usp=sharing" target="_blank">All Certifications</a>
 
 <span style="color: #00ff88;">Academic Projects:</span>
 • Final Year Project: AI-powered Recommendation System
