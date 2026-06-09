@@ -119,6 +119,23 @@ input {
   pointer-events: none;
 }
 
+.rotate-card-button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  background: rgba(0, 0, 0, 0.72);
+  color: #00ff88;
+  font: 12px 'Courier New', monospace;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.rotate-card-button:hover {
+  background: rgba(0, 255, 136, 0.12);
+}
+
 .right-panel {
   flex: 1;
   min-width: 0;

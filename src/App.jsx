@@ -4,6 +4,7 @@ import { Canvas, extend, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Lightformer, Text, useGLTF, useTexture } from '@react-three/drei'
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
+import profilePhoto from '../Img/geet.png'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
@@ -344,6 +345,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
   const { nodes, materials } = useGLTF(CARD_MODEL)
   const texture = useTexture(BAND_TEXTURE)
+  const cardTexture = useCardTexture()
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
   const [dragged, drag] = useState(false)
@@ -427,11 +429,16 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
             }}
           >
             <mesh geometry={nodes.card.geometry}>
-              <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.3} metalness={0.5} />
+              <meshPhysicalMaterial color="#0d0d0d" roughness={0.12} metalness={0.55} clearcoat={1} clearcoatRoughness={0} envMapIntensity={3} />
             </mesh>
+            {cardTexture && (
+              <mesh position={[0, 0.52, 0.018]}>
+                <planeGeometry args={[0.72, 1.02]} />
+                <meshBasicMaterial map={cardTexture} transparent side={THREE.DoubleSide} />
+              </mesh>
+            )}
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
-            <CardText />
           </group>
         </RigidBody>
       </group>
@@ -443,21 +450,259 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   )
 }
 
-function CardText() {
-  return (
-    <group position={[0, -0.02, 0.028]}>
-      <Text position={[0, 0.34, 0]} fontSize={0.085} color="#111827" anchorX="center" anchorY="middle">
-        GEET PRAJAPATI
-      </Text>
-      <Text position={[0, 0.2, 0]} fontSize={0.044} color="#334155" anchorX="center" anchorY="middle">
-        COMPUTER ENGINEER / QA TESTER
-      </Text>
-      <Text position={[0, -0.03, 0]} fontSize={0.038} color="#111827" anchorX="center" anchorY="middle">
-        Cybersecurity | Game Testing | Frontend
-      </Text>
-      <Text position={[0, -0.22, 0]} fontSize={0.034} color="#475569" anchorX="center" anchorY="middle">
-        Ahmedabad, Gujarat, India
-      </Text>
-    </group>
+function useCardTexture() {
+  const [texture, setTexture] = useState(null)
+
+  useEffect(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = 1024
+    canvas.height = 1400
+    const ctx = canvas.getContext('2d')
+    const image = new Image()
+
+    image.onload = () => {
+      drawCardTexture(ctx, canvas, image)
+
+      const nextTexture = new THREE.CanvasTexture(canvas)
+      nextTexture.flipY = true
+      nextTexture.colorSpace = THREE.SRGBColorSpace
+      nextTexture.anisotropy = 16
+      nextTexture.needsUpdate = true
+      setTexture(nextTexture)
+    }
+
+    image.src = profilePhoto
+
+    return () => {
+      setTexture((current) => {
+        current?.dispose()
+        return null
+      })
+    }
+  }, [])
+
+  return texture
+}
+
+function drawCardTexture(ctx, canvas, image) {
+  const { width, height } = canvas
+
+  ctx.clearRect(0, 0, width, height)
+
+  // Rounded card clip
+  ctx.save()
+  roundedRect(ctx, 0, 0, width, height, 70)
+  ctx.clip()
+
+  // =========================
+  // BASE BACKGROUND
+  // =========================
+
+  const bg = ctx.createLinearGradient(
+    0,
+    0,
+    0,
+    height
   )
+
+  bg.addColorStop(0, '#1a1a1a')
+  bg.addColorStop(1, '#050505')
+
+  ctx.fillStyle = bg
+  ctx.fillRect(0, 0, width, height)
+
+  // =========================
+  // METAL TEXTURE
+  // =========================
+
+  ctx.save()
+  ctx.globalAlpha = 0.03
+
+  for (let x = 0; x < width; x += 18) {
+    ctx.fillStyle = '#ffffff'
+    ctx.fillRect(x, 0, 2, height)
+  }
+
+  ctx.restore()
+
+  // =========================
+  // DIAGONAL PATTERN
+  // =========================
+
+  ctx.save()
+  ctx.globalAlpha = 0.04
+  ctx.strokeStyle = '#ffffff'
+  ctx.lineWidth = 8
+
+  for (let i = -height; i < width; i += 42) {
+    ctx.beginPath()
+    ctx.moveTo(i, height)
+    ctx.lineTo(i + height, 0)
+    ctx.stroke()
+  }
+
+  ctx.restore()
+
+  // =========================
+  // LOGO AREA
+  // =========================
+
+  ctx.fillStyle = '#ffffff'
+
+  ctx.font = '900 90px Arial'
+  ctx.fillText('G', 60, 140)
+
+  ctx.font = '700 30px Arial'
+  ctx.textAlign = 'right'
+  ctx.fillText('geetmark', width - 60, 135)
+
+  ctx.textAlign = 'left'
+
+  // =========================
+  // PHOTO FRAME
+  // =========================
+
+  const photoX = 170
+  const photoY = 240
+  const photoW = 680
+  const photoH = 820
+
+  ctx.strokeStyle = 'rgba(255,255,255,0.12)'
+  ctx.lineWidth = 3
+
+  roundedRect(
+    ctx,
+    photoX - 8,
+    photoY - 8,
+    photoW + 16,
+    photoH + 16,
+    30
+  )
+
+  ctx.stroke()
+
+  // portrait
+  drawCroppedImage(
+  ctx,
+  image,
+  photoX,
+  photoY,
+  photoW,
+  photoH
+)
+
+  // =========================
+  // PHOTO FADE
+  // =========================
+
+  const fade = ctx.createLinearGradient(
+    0,
+    850,
+    0,
+    height
+  )
+
+  fade.addColorStop(
+    0,
+    'rgba(0,0,0,0)'
+  )
+
+  fade.addColorStop(
+    1,
+    'rgba(0,0,0,0.95)'
+  )
+
+  ctx.fillStyle = fade
+  ctx.fillRect(
+    0,
+    850,
+    width,
+    height - 850
+  )
+
+  
+
+  // =========================
+  // GLOSS
+  // =========================
+
+  const gloss = ctx.createLinearGradient(
+    0,
+    0,
+    width,
+    height
+  )
+
+  gloss.addColorStop(
+    0,
+    'rgba(255,255,255,0.16)'
+  )
+
+  gloss.addColorStop(
+    0.2,
+    'rgba(255,255,255,0.03)'
+  )
+
+  gloss.addColorStop(
+    1,
+    'rgba(255,255,255,0)'
+  )
+
+  ctx.fillStyle = gloss
+  ctx.fillRect(0, 0, width, height)
+
+  ctx.restore()
+}
+
+function drawCroppedImage(ctx, image, x, y, width, height) {
+  const imageRatio = image.width / image.height
+  const targetRatio = width / height
+  let sx = 0
+  let sy = 0
+  let sw = image.width
+  let sh = image.height
+
+  if (imageRatio > targetRatio) {
+    sw = image.height * targetRatio
+    sx = (image.width - sw) / 2
+  } else {
+    sh = image.width / targetRatio
+    sy = (image.height - sh) / 2
+  }
+
+  ctx.save()
+  roundedRect(ctx, x, y, width, height, 42)
+  ctx.clip()
+  ctx.drawImage(image, sx, sy, sw, sh, x, y, width, height)
+  ctx.restore()
+}
+
+function drawMonochromeImage(ctx, image, x, y, width, height) {
+  drawCroppedImage(ctx, image, x, y, width, height)
+  const imageData = ctx.getImageData(x, y, width, height)
+  const data = imageData.data
+
+  for (let i = 0; i < data.length; i += 4) {
+    const gray = data[i] * 0.28 + data[i + 1] * 0.58 + data[i + 2] * 0.14
+    const contrast = Math.max(0, Math.min(255, (gray - 128) * 1.18 + 128))
+    data[i] = contrast
+    data[i + 1] = contrast
+    data[i + 2] = contrast
+  }
+
+  ctx.putImageData(imageData, x, y)
+}
+
+function roundedRect(ctx, x, y, width, height, radius) {
+  ctx.beginPath()
+  ctx.moveTo(x + radius, y)
+  ctx.lineTo(x + width - radius, y)
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius)
+  ctx.lineTo(x + width, y + height - radius)
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height)
+  ctx.lineTo(x + radius, y + height)
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius)
+  ctx.lineTo(x, y + radius)
+  ctx.quadraticCurveTo(x, y, x + radius, y)
+  ctx.closePath()
 }
